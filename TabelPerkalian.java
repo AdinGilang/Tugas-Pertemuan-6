@@ -4,34 +4,29 @@ package Pertemuan6;
  * @author ading
  */
 import java.util.Scanner;
-
 public class TabelPerkalian {
 
-  private static Scanner scanner;
-
-public static void main(String[] args) {
-    int n;
-
-    System.out.println("Tabel Perkalian");
-    System.out.println("----------------");
-
-    // Input nilai n
-    System.out.print("Masukkan nilai n: ");
-    scanner = new Scanner(System.in);
-    n = Integer.parseInt (scanner.nextLine());
-
-    // Mencetak tabel perkalian
-    for (int i = 1; i <= n; i++) {
-      for (int j = 1; j <= n; j++) {
-        if (i == 1 || j == 1) {
-          System.out.printf("%2d ", i * j);
-        } else if (i == j) {
-          System.out.printf("%2d ", i * i);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan nilai n (<= 10): ");
+        int n = input.nextInt();
+        if (n <= 10) {
+            Tampilkan(n);
         } else {
-          System.out.printf("%2d ", i * j);
+            System.out.println("Nilai n harus lebih kecil atau sama dengan 10.");
         }
-      }
-      System.out.println();
+        input.close();
     }
-  }
+
+    public static void Tampilkan(int n) {
+        System.out.println("Tabel Perkalian " + n + " x " + n + ":");
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                System.out.print(i * j + "\t");
+            }
+            System.out.println();
+        }
+    }
+
 }
